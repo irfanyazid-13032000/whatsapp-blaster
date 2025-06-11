@@ -1,13 +1,27 @@
-import ContactList from '../components/ContactManagement/ContactList';
-import SendMessageForm from '../components/ContactManagement/SendMessageForm';
+import { Link, Outlet } from 'react-router-dom';
 
 export default function Home() {
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-6">Contact</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <ContactList />
-        <SendMessageForm />
+    <div className="min-h-screen bg-gray-100">
+      {/* Topbar */}
+      <div className="bg-blue-600 text-white p-4 flex space-x-4">
+        <Link 
+          to="/contact" 
+          className="hover:bg-blue-700 px-3 py-1 rounded"
+        >
+          Contact Management
+        </Link>
+        <Link 
+          to="/send-message" 
+          className="hover:bg-blue-700 px-3 py-1 rounded"
+        >
+          Kirim Pesan
+        </Link>
+      </div>
+
+      {/* Konten Halaman */}
+      <div className="p-4">
+        <Outlet />  {/* Ini akan render halaman yang aktif */}
       </div>
     </div>
   );
