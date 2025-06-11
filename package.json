@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "@app/main": "*",
+    "lucide-react": "^0.514.0",
     "react-router-dom": "^7.6.2"
   }
 }

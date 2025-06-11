@@ -1,0 +1,64 @@
+.send-message-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.send-message-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+.send-message-form {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  background-color: #f0f2f5;
+  padding: 0.75rem;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.message-input {
+  flex: 1;
+  resize: none;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 18px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  max-height: 120px;
+  overflow-y: auto;
+  background: white;
+}
+
+.repeat-input {
+  width: 60px;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  text-align: center;
+  background: white;
+  font-size: 0.9rem;
+}
+
+.send-button {
+  background-color: #0084ff;
+  color: white;
+  border: none;
+  padding: 0.6rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.send-button:hover {
+  background-color: #006fe6;
+}

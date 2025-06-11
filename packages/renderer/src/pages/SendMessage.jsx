@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { Send } from 'lucide-react'; // atau bisa pakai font-awesome
+import './../styles/SendMessage.css';
 
 export default function SendMessage() {
   const [message, setMessage] = useState('');
@@ -10,35 +12,27 @@ export default function SendMessage() {
   };
 
   return (
-    <div>
-      <h1 className="text-2xl font-bold mb-4">Kirim Pesan</h1>
-      <form onSubmit={handleSubmit} className="space-y-4 max-w-md">
-        <div>
-          <label className="block mb-1">Isi Pesan:</label>
-          <input
-            type="text"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            className="w-full p-2 border rounded"
-            required
-          />
-        </div>
-        <div>
-          <label className="block mb-1">Jumlah Kirim:</label>
-          <input
-            type="number"
-            min="1"
-            value={repeat}
-            onChange={(e) => setRepeat(e.target.value)}
-            className="w-full p-2 border rounded"
-            required
-          />
-        </div>
-        <button
-          type="submit"
-          className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
-        >
-          Kirim Sekarang
+    <div className="send-message-container">
+      <h1 className="send-message-title">Kirim Pesan</h1>
+      <form onSubmit={handleSubmit} className="send-message-form">
+        <textarea
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          className="message-input"
+          placeholder="Tulis pesan..."
+          rows={1}
+          required
+        />
+        <input
+          type="number"
+          min="1"
+          value={repeat}
+          onChange={(e) => setRepeat(e.target.value)}
+          className="repeat-input"
+          required
+        />
+        <button type="submit" className="send-button" title="Kirim">
+          <Send size={20} />
         </button>
       </form>
     </div>
