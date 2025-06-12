@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import './../styles/ContactManagement.css';
+import { Search,Plus,Pencil,SquarePen,Trash2 } from 'lucide-react';
+
 
 export default function ContactManagement() {
   const [contacts, setContacts] = useState([
@@ -11,6 +13,7 @@ export default function ContactManagement() {
   const [formData, setFormData] = useState({ name: '', number: '' });
   const [isEditing, setIsEditing] = useState(false);
   const [editId, setEditId] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -42,7 +45,6 @@ export default function ContactManagement() {
 
   const handleDelete = (id) => {
     setContacts(contacts.filter((contact) => contact.id !== id));
-
     if (isEditing && id === editId) {
       setIsEditing(false);
       setEditId(null);
@@ -56,11 +58,17 @@ export default function ContactManagement() {
     setFormData({ name: contact.name, number: contact.number });
   };
 
+  const filteredContacts = contacts.filter(
+    (contact) =>
+      contact.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      contact.number.includes(searchTerm)
+  );
+
   return (
     <div className="contact-management">
       <h1>Daftar Kontak</h1>
 
-      {/* Form Tambah/Edit Kontak */}
+      {/* Form Tambah/Edit */}
       <form className="contact-form" onSubmit={handleAddContact}>
         <input
           type="text"
@@ -79,38 +87,52 @@ export default function ContactManagement() {
           className="form-input"
         />
         <button type="submit" className={`action-button ${isEditing ? 'edit-button' : 'add-button'}`}>
-          {isEditing ? 'Edit' : 'Tambah'}
+          {isEditing ? <Pencil size={20} style={{ backgroundColor:'#2374e1' }} /> : <Plus size={20} style={{ backgroundColor:'#2374e1' }} />}
         </button>
       </form>
+
+      {/* Search */}
+      <div className="search-container">
+        <input
+          type="text"
+          placeholder="Cari kontak..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="form-input search-input"
+        />
+        <button className="action-button search-button">
+           <Search size={20} style={{ backgroundColor:'#2374e1' }} />
+        </button>
+      </div>
 
       {/* Tabel Kontak */}
       <table className="contacts-table">
         <thead>
           <tr>
-            <th>No</th>
-            <th>Nama</th>
-            <th>Nomor Telepon</th>
-            <th>Aksi</th>
+            <th style={{ textAlign:'center' }}>No</th>
+            <th style={{ textAlign:'center' }}>Nama</th>
+            <th style={{ textAlign:'center' }}>Nomor Telepon</th>
+            <th style={{ textAlign:'center' }}>Aksi</th>
           </tr>
         </thead>
         <tbody>
-          {contacts.map((contact, index) => (
+          {filteredContacts.map((contact, index) => (
             <tr key={contact.id}>
-              <td>{index + 1}</td>
-              <td>{contact.name}</td>
-              <td>{contact.number}</td>
-              <td>
+              <td style={{ textAlign:'center' }}>{index + 1}</td>
+              <td style={{ textAlign:'center' }}>{contact.name}</td>
+              <td style={{ textAlign:'center' }}>{contact.number}</td>
+              <td style={{ textAlign:'center' }}>
                 <button
                   className="action-button edit-button"
                   onClick={() => handleEditClick(contact)}
                 >
-                  Edit
+                  <SquarePen size={20} style={{ backgroundColor:'#2374e1' }} />
                 </button>
                 <button
                   className="action-button delete-button"
                   onClick={() => handleDelete(contact.id)}
                 >
-                  Hapus
+                  <Trash2 size={20} style={{ backgroundColor:'#f02849' }}/>
                 </button>
               </td>
             </tr>
