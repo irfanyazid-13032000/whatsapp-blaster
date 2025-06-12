@@ -76,3 +76,33 @@
 .edit-button:hover {
   background-color: #3d8af5;
 }
+
+.contact-form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.form-input {
+  padding: 8px 12px;
+  border: 1px solid #3e4042;
+  border-radius: 6px;
+  background-color: #242526;
+  color: #e4e6eb;
+  font-size: 14px;
+  width: 200px;
+}
+
+.form-input::placeholder {
+  color: #b0b3b8;
+}
+
+.add-button {
+  background-color: #2e89ff;
+}
+
+.add-button:hover {
+  background-color: #4a98ff;
+}
