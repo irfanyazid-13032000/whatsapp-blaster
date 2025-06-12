@@ -2,7 +2,7 @@
 
 /* Layout Utama */
 .app-container {
-  min-height: 10vh;
+  min-height: 100vh;
   background-color: #18191a; /* Latar belakang hitam */
   display: flex;
   flex-direction: column;
