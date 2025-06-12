@@ -46,7 +46,7 @@ export default function SendMessage() {
         </div>
 
         <button type="submit" className="send-button" title="Kirim">
-          <Send size={20} />
+          <Send size={20} style={{ backgroundColor:'#0084ff' }} />
         </button>
       </form>
     </div>

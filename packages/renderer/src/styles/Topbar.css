@@ -1,8 +1,10 @@
 /* src/renderer/src/styles/Topbar.css */
-
+*{
+  background-color: #18191a;
+}
 /* Layout Utama */
 .app-container {
-  min-height: 100vh;
+  height: 100vh;
   background-color: #18191a; /* Latar belakang hitam */
   display: flex;
   flex-direction: column;
@@ -46,8 +48,3 @@
   background-color: #1d4ed8; /* Warna biru lebih gelap saat hover */
 }
 
-/* Konten */
-.content {
-  color: #333; /* Warna teks gelap untuk konten */
-  margin-top: 20px;
-}
